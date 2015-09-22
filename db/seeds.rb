@@ -7,9 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # statues
-Status.create(id: 1, name: '未着手', sequence: 1)
-Status.create(id: 2, name: '進行中', sequence: 2)
-Status.create(id: 3, name: '完了', sequence: 3)
+statues = Status.create([
+    {id: 1, name: '未着手', sequence: 1},
+    {id: 2, name: '進行中', sequence: 2},
+    {id: 3, name: '完了', sequence: 3}
+    ])
 
 # priorities
 priorities = Priority.create([
