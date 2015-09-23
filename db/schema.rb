@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150922142807) do
     t.integer  "status_id"
     t.integer  "priority_id"
     t.integer  "project_id"
-    t.integer  "assign_user"
-    t.integer  "lock_version", default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "assign_user_id"
+    t.integer  "lock_version",   default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|

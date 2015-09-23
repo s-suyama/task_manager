@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :status_id
       t.integer :priority_id
       t.integer :project_id
-      t.integer :assign_user
+      t.integer :assign_user_id
       t.integer :lock_version, default: 0
 
       t.timestamps null: false

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t 'tasks.title' %></strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong><%= t 'tasks.description' %></strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong><%= t 'tasks.status_id' %></strong>
+  <% unless @task.status.nil? %>
+      <%= @task.status.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t 'tasks.priority_id' %></strong>
+  <% unless @task.priority.nil? %>
+      <%= @task.priority.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t 'tasks.project_id' %></strong>
+  <% unless @task.project.nil? %>
+      <%= @task.project.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= t 'tasks.assign_user_id' %></strong>
+  <% unless @task.assign_user.nil? %>
+      <%= @task.assign_user.name %>
+  <% end %>
+</p>
+
+<%= link_to '編集', edit_task_path(@task) %> |
+<%= link_to '戻る', tasks_path %>
