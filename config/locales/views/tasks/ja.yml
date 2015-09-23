@@ -1,0 +1,8 @@
+ja:
+  tasks:
+    title: 'タイトル'
+    description: '説明'
+    status_id: 'ステータス'
+    priority_id: '優先度'
+    project_id: 'プロジェクト'
+    assign_user_id: '担当者'
