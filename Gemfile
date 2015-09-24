@@ -38,6 +38,10 @@ gem 'rails-i18n'
 # 定数を管理する
 gem 'config'
 
+# Use Bootstrap
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 group :development do
   gem 'yard'
 end
