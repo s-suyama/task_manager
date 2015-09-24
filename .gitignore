@@ -18,3 +18,7 @@
 
 # Ignore RubyMine .ide
 /.idea
+
+# Ignore Yard
+/.yardoc
+/doc

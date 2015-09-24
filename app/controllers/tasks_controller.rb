@@ -1,21 +1,28 @@
 class TasksController < ApplicationController
 
+  # 全タスクを取得し、タスク一覧画面の html を返します。
   def index
     @tasks = Task.all
   end
 
+  # 指定した id のタスクを取得し、タスクの表示画面の html を返します。
   def show
     @task = get_task
   end
 
+  # 新しいタスクのインスタンを生成し、タスクの登録画面の html を返します。
   def new
     @task = Task.new
   end
 
+  # 指定した id のタスクを取得し、タスクの編集画面の html を返します。
   def edit
     @task = get_task
   end
 
+  # 新しいタスクを登録します。
+  # タスクの登録に成功した場合、タスクの表示画面へリダイレクトします。
+  # タスクの登録に失敗した場合、タスクの登録画面の html を返します。
   def create
     @task = Task.new(task_params)
     if @task.save!
@@ -25,6 +32,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # 指定した id のタスクを更新します。
   def update
     @task = get_task
     if @task.update!(task_params)
@@ -34,6 +42,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # 指定した id のタスクを削除します。
   def destroy
     @task = get_task
     @task.destroy
@@ -42,10 +51,14 @@ class TasksController < ApplicationController
 
   private
 
+  # url で指定した id のタスクを取得します。
+  # @return [Task] 指定した id のタスク
   def get_task
     Task.find(params[:id])
   end
 
+  # 画面で入力したパラメータのハッシュを取得します。
+  # @return [Hash] 画面で入力したパラメータ
   def task_params
     params.require(:task).permit(
       :title,
