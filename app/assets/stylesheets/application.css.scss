@@ -15,3 +15,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+$nav_padding-top: 70px;
+
+/* SCSS */
+body{
+    padding-top: $nav_padding-top;
+}
