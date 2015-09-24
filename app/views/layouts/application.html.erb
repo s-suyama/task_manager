@@ -8,6 +8,36 @@
 </head>
 <body>
 
+<!-- メニュー -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMain">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">タスク管理</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="nav navbar-nav">  
+        <li><a href="#">タスク</a></li>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a href="#">リンクのリスト１</a></li>
+            <li role="presentation"><a href="#">リンクのリスト２</a></li>
+            <li role="presentation"><a href="#">リンクのリスト３</a></li>
+          </ul>
+        <li><a href="#">プロジェクト</a></li>
+        <li><a href="#">他にあれば・・・</a></li>
+      </ul>
+      <!-- todo ログイン画面に遷移 -->
+      <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+      <!-- todo ログイン状態により、出力メッセージを変更したい -->
+      <p class="navbar-text navbar-right">ようこそ ゲスト さん。</p>
+    </div>
+  </div>
+</nav>
 <div class="container">
   <%= yield %>
 </div>
