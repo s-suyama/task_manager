@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# statues
-statues = Status.create([
+# statuses
+statuses = Status.create([
     {id: 1, name: '未着手', sequence: 1},
     {id: 2, name: '進行中', sequence: 2},
     {id: 3, name: '完了', sequence: 3}
