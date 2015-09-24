@@ -1,7 +1,7 @@
 <%= form_for(@task) do |f| %>
     <% if @task.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@task.errors.count, '件のエラーがあります。') %></h2>
+          <h2><%= @task.errors.count.to_s + '件のエラーがあります' %></h2>
           <ul>
             <% @task.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -12,18 +12,18 @@
 
     <div class="field">
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, maxlength: 100 %>
     </div>
 
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, maxlength: 1000 , rows: 20, cols: 100%>
     </div>
 
     <div class="field">
       <%= f.label :status_id %>
       <%= f.collection_select(
-                  :status_id, Status.all, :id, :name, include_blank: true
+                  :status_id, Status.all, :id, :name, selected: Settings.status[:untouched]
           ) %>
     </div>
 

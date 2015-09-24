@@ -25,6 +25,12 @@ class TasksController < ApplicationController
   # タスクの登録に失敗した場合、タスクの登録画面の html を返します。
   def create
     @task = Task.new(task_params)
+
+    unless @task.valid?
+      render :new
+      return
+    end
+
     if @task.save!
       redirect_to @task, notice: 'タスクを作成しました。'
     else
@@ -35,6 +41,13 @@ class TasksController < ApplicationController
   # 指定した id のタスクを更新します。
   def update
     @task = get_task
+    @task.attributes = task_params
+
+    unless @task.valid?
+      render :edit
+      return
+    end
+
     if @task.update!(task_params)
       redirect_to @task, notice: 'タスクを更新しました。'
     else
