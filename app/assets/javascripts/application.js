@@ -15,3 +15,17 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip(
+    {
+      template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="color: #CCFFCC; font-style: italic;"></div></div>'
+	}
+  );
+});
+
+$('body').tooltip(
+  {
+    selector: '#test'
+  }
+);
