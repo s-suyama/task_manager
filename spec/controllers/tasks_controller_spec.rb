@@ -80,4 +80,26 @@ RSpec.describe TasksController, type: :controller do
       }.to change(Task, :count).by(-1)
     end
   end
+
+  describe 'PATCH #update_status' do
+    before :each do
+      @task1 = create(:untouched_task)
+      @task2 = create(:untouched_task)
+      @task3 = create(:untouched_task)
+      patch :update_status, { task: { status: Settings.status[:progress] }, checked_tasks: { @task1.id => '1', @task2.id => '0', @task3.id => '1' }}
+    end
+
+    it '複数のタスクのステータスが正しく更新されること' do
+      @task1.reload
+      @task2.reload
+      @task3.reload
+      expect(@task1.status_id).to eq(Settings.status[:progress])
+      expect(@task2.status_id).to eq(Settings.status[:untouched])
+      expect(@task3.status_id).to eq(Settings.status[:progress])
+    end
+
+    it '一覧画面へリダイレクトすること' do
+      expect(response).to redirect_to tasks_url
+    end
+  end
 end

@@ -19,4 +19,9 @@ FactoryGirl.define do
   factory :valid_error, class: Task do
     title 'foo'
   end
+
+  factory :untouched_task, class: Task do
+    sequence(:title) {|i| "task#{i}"}
+    status_id Settings.status[:untouched]
+  end
 end
